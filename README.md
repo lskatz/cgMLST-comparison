@@ -23,5 +23,6 @@ Comparing distances for cgMLST
 
 | dataset | link |
 | ------- | ------ |
+| _S. enterica_ | [notebook](salm/salm.ipynb) |
 | _L. monocytogenes_ | [notebook](lmo/lmo.ipynb) |
 | _C. jejuni_ | [notebook](campy/campy.ipynb) |
