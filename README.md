@@ -22,6 +22,6 @@ Comparing distances for cgMLST
 2. Created scatter plots with goodness of fit
 
 | dataset | link |
-------------------
+|------------------|
 | _L. monocytogenes_ | [notebook](lmo/lmo.ipynb) |
 | _C. jejuni_ | [notebook](campy/campy.ipynb) |
