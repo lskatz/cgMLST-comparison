@@ -19,6 +19,7 @@ Comparing distances for cgMLST
 1. Found suitable callers
    * EToKi
    * ChewBBACA
+   * ColorID
 2. Created scatter plots with goodness of fit
 
 | dataset | link |
