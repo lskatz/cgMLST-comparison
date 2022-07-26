@@ -9,7 +9,7 @@ trap ' { rm -rf $tmpdir; } ' EXIT
 
 # Hyperfine parameters
 # Locally, just run one time per test but in the cloud, boost it to ten
-num_runs=5 # 5
+num_runs=25 # 5
 warmup=2   # 2
 if [[ ! -z ${CI+""} ]]; then
   # if on continuous integration

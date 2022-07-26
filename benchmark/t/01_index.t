@@ -9,6 +9,7 @@ use Data::Dumper;
 use List::Util qw/shuffle/;
 use File::Temp qw/tempdir/;
 use Bio::SeqIO;
+use Benchmark ':all';
 
 use Test::More tests => 1;
 
@@ -20,7 +21,7 @@ my @dbName = qw(Campylobacter_jejuni Listeria_monocytogenes Salmonella_enterica)
 my @concatFasta = qw(campy.cat.fasta  lmo.cat.fasta  salm.cat.fasta);
 my @refsFasta = qw(campy.refs.fasta lmo.refs.fasta salm.refs.fasta);
 
-local $0 = basename($0);
+local $0 = basename $0;
 my $tempdir = tempdir("$0.XXXXXX", CLEANUP=>1,TMPDIR=>1);
 
 # Get assemblies
@@ -96,8 +97,18 @@ subtest 'indexOnce' => sub{
 };
 
 
-# TODO speed comparison
+# speed comparison
+for(my $i=0;$i<@genus;$i++){
+  diag "Genus $genus[$i]";
+  cmpthese(10, {
+    'coloridIndex'   => sub {&colorIdIndex("$tempdir/$genus[$i].asms.1.fofn", "$tempdir/$genus[$i].1.bxi")},
+    'coloridIndexAll'=> sub {&colorIdIndex("$tempdir/$genus[$i].asms.fofn", "$tempdir/$genus[$i].bxi")},
+    'etokiIndex'     => sub {&etokiIndex($concatFasta[$i], $refsFasta[$i], "$tempdir/$genus[$i].etoki")},
+  });
+}
 
+# Save the indices
+system("cp -nv $tempdir/*.bxi $tempdir/*.etoki $RealBin/");
 
 
 
