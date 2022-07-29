@@ -10,7 +10,7 @@ use List::Util qw/shuffle/;
 use File::Temp qw/tempdir/;
 use Bio::SeqIO;
 
-die "Usage: $0 chewiedir outfile.fasta refs.fasta" if(!@ARGV);
+die "Usage: $0 chewiedir outfile.fasta refs.fasta" if(!@ARGV || " @ARGV" =~ / -+h/);
 my($chewiedir, $outfile, $refs) = @ARGV;
 
 $ENV{PATH} = "$RealBin/../scripts:".$ENV{PATH};
