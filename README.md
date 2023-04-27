@@ -27,3 +27,4 @@ Comparing distances for cgMLST
 | _S. enterica_ | [notebook](salm/salm.ipynb) |
 | _L. monocytogenes_ | [notebook](lmo/lmo.ipynb) |
 | _C. jejuni_ | [notebook](campy/campy.ipynb) |
+| _E. coli_ | [notebook](stec/stec.ipynb) |
